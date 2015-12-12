@@ -10,46 +10,57 @@ import Foundation
 import UIKit
 
 class AddressCard: NSObject, NSCoding {
-    
-    var name: String = ""
-    var surname: String = ""
-    var street: String = ""
-    var houseNbr: Int = 0
-    var zipCode: Int = 0
-    var city: String = ""
-    var hobbies = [String]()
-    var friends = [AddressCard]()
-    var image: UIImage?
   
-    override init(){
-        name = ""
-        surname = ""
-        street = ""
-        houseNbr = 0
-        zipCode = 0
-        city = ""
-        hobbies = [String]()
-        friends = [AddressCard]()
-        super.init()
+  var name: String = ""
+  var surname: String = ""
+  var street: String = ""
+  var houseNbr: Int = 0
+  var zipCode: Int = 0
+  var city: String = ""
+  var hobbies = [String]()
+  var friends = [AddressCard]()
+  var image: UIImage?
+  var firstSurnameLetter: String{
+    get{
+      let firstChar = surname[surname.capitalizedString.startIndex]
+      return String(firstChar)
+    }
+  }
+  
+  func getFirstSurnameLetter() -> String {
+    let firstChar = surname[surname.capitalizedString.startIndex]
+    return String(firstChar)
+  }
+  
+  override init(){
+    name = ""
+    surname = ""
+    street = ""
+    houseNbr = 0
+    zipCode = 0
+    city = ""
+    hobbies = [String]()
+    friends = [AddressCard]()
+    super.init()
+  }
+  
+  init(name: String, surname: String, street: String, houseNbr: Int, zipCode: Int, city: String, hobbies: [String]?, friends: [AddressCard]?){
+    self.name = name
+    self.surname = surname
+    self.street = street
+    self.houseNbr = houseNbr
+    self.zipCode = zipCode
+    self.city = city
+    
+    if let aHobby = hobbies {
+      self.hobbies = aHobby
     }
     
-    init(name: String, surname: String, street: String, houseNbr: Int, zipCode: Int, city: String, hobbies: [String]?, friends: [AddressCard]?){
-        self.name = name
-        self.surname = surname
-        self.street = street
-        self.houseNbr = houseNbr
-        self.zipCode = zipCode
-        self.city = city
-        
-        if let aHobby = hobbies {
-            self.hobbies = aHobby
-        }
-        
-        if let aFriend = friends{
-            self.friends = aFriend
-        }
-        super.init()
+    if let aFriend = friends{
+      self.friends = aFriend
     }
+    super.init()
+  }
   
   init(name: String, surname: String, street: String, houseNbr: Int, zipCode: Int, city: String, hobbies: [String]?, friends: [AddressCard]?, imageName: UIImage?){
     self.name = name
@@ -68,7 +79,7 @@ class AddressCard: NSObject, NSCoding {
     }
     
     if let image = imageName {
-        self.image = image
+      self.image = image
     }
     
     
@@ -76,63 +87,64 @@ class AddressCard: NSObject, NSCoding {
     //        print("A AddressCard was initialized")
   }
   
-    func addHobby(hobby: String){
-        hobbies.append(hobby)
+  func addHobby(hobby: String){
+    hobbies.append(hobby)
+  }
+  
+  func removeHobby(hobby: String){
+    if let i = hobbies.indexOf(hobby){
+      hobbies.removeAtIndex(i)
     }
-    
-    func removeHobby(hobby: String){
-        if let i = hobbies.indexOf(hobby){
-            hobbies.removeAtIndex(i)
-        }
+  }
+  
+  func addFriend(friend: AddressCard){
+    friends.append(friend)
+  }
+  
+  func removeFriend(friend: AddressCard){
+    if let i = friends.indexOf(friend){
+      friends.removeAtIndex(i)
     }
-    
-    func addFriend(friend: AddressCard){
-        friends.append(friend)
+  }
+  
+  
+  
+  func encodeWithCoder(aCoder: NSCoder){
+    aCoder.encodeObject(name, forKey: "name")
+    aCoder.encodeObject(surname, forKey: "surname")
+    aCoder.encodeObject(street, forKey: "street")
+    aCoder.encodeObject(houseNbr, forKey: "houseNbr")
+    aCoder.encodeObject(zipCode, forKey: "zipCode")
+    aCoder.encodeObject(city, forKey: "city")
+    aCoder.encodeObject(hobbies, forKey: "hobbies")
+    aCoder.encodeObject(friends, forKey: "friends")
+  }
+  
+  required init?(coder aDecoder: NSCoder){
+    if let aName = aDecoder.decodeObjectForKey("name") as? String {
+      self.name = aName
     }
-    
-    func removeFriend(friend: AddressCard){
-        if let i = friends.indexOf(friend){
-            friends.removeAtIndex(i)
-        }
+    if let aSurname = aDecoder.decodeObjectForKey("surname") as? String {
+      self.surname = aSurname
     }
-    
-    
-    func encodeWithCoder(aCoder: NSCoder){
-        aCoder.encodeObject(name, forKey: "name")
-        aCoder.encodeObject(surname, forKey: "surname")
-        aCoder.encodeObject(street, forKey: "street")
-        aCoder.encodeObject(houseNbr, forKey: "houseNbr")
-        aCoder.encodeObject(zipCode, forKey: "zipCode")
-        aCoder.encodeObject(city, forKey: "city")
-        aCoder.encodeObject(hobbies, forKey: "hobbies")
-        aCoder.encodeObject(friends, forKey: "friends")
+    if let street = aDecoder.decodeObjectForKey("street") as? String {
+      self.street = street
     }
-    
-    required init?(coder aDecoder: NSCoder){
-        if let aName = aDecoder.decodeObjectForKey("name") as? String {
-            self.name = aName
-        }
-        if let aSurname = aDecoder.decodeObjectForKey("surname") as? String {
-            self.surname = aSurname
-        }
-        if let street = aDecoder.decodeObjectForKey("street") as? String {
-            self.street = street
-        }
-        if let houseNbr = aDecoder.decodeObjectForKey("houseNbr") as? Int {
-            self.houseNbr = houseNbr
-        }
-        if let zipCode = aDecoder.decodeObjectForKey("zipCode") as? Int {
-            self.zipCode = zipCode
-        }
-        if let city = aDecoder.decodeObjectForKey("city") as? String {
-            self.city = city
-        }
-        if let hobbies = aDecoder.decodeObjectForKey("hobbies") as? [String] {
-            self.hobbies = hobbies
-        }
-        if let friends = aDecoder.decodeObjectForKey("friends") as? [AddressCard] {
-            self.friends = friends
-        }
+    if let houseNbr = aDecoder.decodeObjectForKey("houseNbr") as? Int {
+      self.houseNbr = houseNbr
     }
-    
+    if let zipCode = aDecoder.decodeObjectForKey("zipCode") as? Int {
+      self.zipCode = zipCode
+    }
+    if let city = aDecoder.decodeObjectForKey("city") as? String {
+      self.city = city
+    }
+    if let hobbies = aDecoder.decodeObjectForKey("hobbies") as? [String] {
+      self.hobbies = hobbies
+    }
+    if let friends = aDecoder.decodeObjectForKey("friends") as? [AddressCard] {
+      self.friends = friends
+    }
+  }
+  
 }

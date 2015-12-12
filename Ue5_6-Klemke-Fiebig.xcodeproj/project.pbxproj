@@ -15,10 +15,11 @@
 		7788AF871C1B48F9007A7861 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7788AF851C1B48F9007A7861 /* LaunchScreen.storyboard */; };
 		7788AF901C1B5476007A7861 /* AddressCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7788AF8E1C1B5476007A7861 /* AddressCard.swift */; };
 		7788AF911C1B5476007A7861 /* AddressBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7788AF8F1C1B5476007A7861 /* AddressBook.swift */; };
-		7788AF971C1B7147007A7861 /* FelixKlemke.png in Resources */ = {isa = PBXBuildFile; fileRef = 7788AF931C1B7147007A7861 /* FelixKlemke.png */; };
-		7788AF981C1B7147007A7861 /* JohnnyTheSnake.png in Resources */ = {isa = PBXBuildFile; fileRef = 7788AF941C1B7147007A7861 /* JohnnyTheSnake.png */; };
-		7788AF991C1B7147007A7861 /* JulianFiebig.png in Resources */ = {isa = PBXBuildFile; fileRef = 7788AF951C1B7147007A7861 /* JulianFiebig.png */; };
-		7788AF9A1C1B7147007A7861 /* LeonEhrenberg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7788AF961C1B7147007A7861 /* LeonEhrenberg.png */; };
+		778921EB1C1C7F330051855D /* LeonEhrenberg.png in Resources */ = {isa = PBXBuildFile; fileRef = 778921E61C1C7F330051855D /* LeonEhrenberg.png */; };
+		778921EC1C1C7F330051855D /* JohnnyTheSnake.png in Resources */ = {isa = PBXBuildFile; fileRef = 778921E71C1C7F330051855D /* JohnnyTheSnake.png */; };
+		778921ED1C1C7F330051855D /* JulianFiebig.png in Resources */ = {isa = PBXBuildFile; fileRef = 778921E81C1C7F330051855D /* JulianFiebig.png */; };
+		778921EE1C1C7F330051855D /* FelixKlemke.png in Resources */ = {isa = PBXBuildFile; fileRef = 778921E91C1C7F330051855D /* FelixKlemke.png */; };
+		778921EF1C1C7F330051855D /* GregorKlemke.png in Resources */ = {isa = PBXBuildFile; fileRef = 778921EA1C1C7F330051855D /* GregorKlemke.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,10 +33,11 @@
 		7788AF881C1B48F9007A7861 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7788AF8E1C1B5476007A7861 /* AddressCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressCard.swift; sourceTree = "<group>"; };
 		7788AF8F1C1B5476007A7861 /* AddressBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBook.swift; sourceTree = "<group>"; };
-		7788AF931C1B7147007A7861 /* FelixKlemke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FelixKlemke.png; sourceTree = "<group>"; };
-		7788AF941C1B7147007A7861 /* JohnnyTheSnake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JohnnyTheSnake.png; sourceTree = "<group>"; };
-		7788AF951C1B7147007A7861 /* JulianFiebig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JulianFiebig.png; sourceTree = "<group>"; };
-		7788AF961C1B7147007A7861 /* LeonEhrenberg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeonEhrenberg.png; sourceTree = "<group>"; };
+		778921E61C1C7F330051855D /* LeonEhrenberg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeonEhrenberg.png; sourceTree = "<group>"; };
+		778921E71C1C7F330051855D /* JohnnyTheSnake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JohnnyTheSnake.png; sourceTree = "<group>"; };
+		778921E81C1C7F330051855D /* JulianFiebig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JulianFiebig.png; sourceTree = "<group>"; };
+		778921E91C1C7F330051855D /* FelixKlemke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FelixKlemke.png; sourceTree = "<group>"; };
+		778921EA1C1C7F330051855D /* GregorKlemke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GregorKlemke.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,10 +87,11 @@
 		7788AF921C1B6FBD007A7861 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				7788AF931C1B7147007A7861 /* FelixKlemke.png */,
-				7788AF941C1B7147007A7861 /* JohnnyTheSnake.png */,
-				7788AF951C1B7147007A7861 /* JulianFiebig.png */,
-				7788AF961C1B7147007A7861 /* LeonEhrenberg.png */,
+				778921E61C1C7F330051855D /* LeonEhrenberg.png */,
+				778921E71C1C7F330051855D /* JohnnyTheSnake.png */,
+				778921E81C1C7F330051855D /* JulianFiebig.png */,
+				778921E91C1C7F330051855D /* FelixKlemke.png */,
+				778921EA1C1C7F330051855D /* GregorKlemke.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -152,12 +155,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7788AF971C1B7147007A7861 /* FelixKlemke.png in Resources */,
-				7788AF9A1C1B7147007A7861 /* LeonEhrenberg.png in Resources */,
+				778921EB1C1C7F330051855D /* LeonEhrenberg.png in Resources */,
+				778921EC1C1C7F330051855D /* JohnnyTheSnake.png in Resources */,
+				778921EF1C1C7F330051855D /* GregorKlemke.png in Resources */,
+				778921EE1C1C7F330051855D /* FelixKlemke.png in Resources */,
 				7788AF871C1B48F9007A7861 /* LaunchScreen.storyboard in Resources */,
 				7788AF841C1B48F9007A7861 /* Assets.xcassets in Resources */,
-				7788AF991C1B7147007A7861 /* JulianFiebig.png in Resources */,
-				7788AF981C1B7147007A7861 /* JohnnyTheSnake.png in Resources */,
+				778921ED1C1C7F330051855D /* JulianFiebig.png in Resources */,
 				7788AF821C1B48F9007A7861 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +327,7 @@
 				7788AF8D1C1B48F9007A7861 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
