@@ -28,15 +28,14 @@ class AddressBook: NSObject, NSCoding {
     addressCards.append(card)
     addressCards.sortInPlace{ $0.surname.compare($1.surname) == .OrderedAscending
     }
-//    count = addressCards.count //update count
-    print("The Addressbok has a new entry and was succsessfully sorted.")
+//    print("The Addressbok has a new entry and was succsessfully sorted.")
   }
   
   func removeCard(card: AddressCard){
     if let i = addressCards.indexOf(card){
       addressCards[i].friends.removeAll()
+      addressCards[i].hobbies.removeAll()
       addressCards.removeAtIndex(i)
-//      count = addressCards.count //update count
     }
   }
   

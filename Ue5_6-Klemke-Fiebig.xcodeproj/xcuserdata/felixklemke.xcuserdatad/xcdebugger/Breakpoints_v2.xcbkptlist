@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ue5_6-Klemke-Fiebig/MasterViewController.swift"
-            timestampString = "471630175.507995"
+            timestampString = "471631037.882289"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "MasterViewController"
             landmarkType = "3">
          </BreakpointContent>
