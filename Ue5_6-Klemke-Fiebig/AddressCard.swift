@@ -82,9 +82,7 @@ class AddressCard: NSObject, NSCoding {
       self.image = image
     }
     
-    
     super.init()
-    //        print("A AddressCard was initialized")
   }
   
   func addHobby(hobby: String){
