@@ -11,16 +11,8 @@ import Foundation
 class AddressBook: NSObject, NSCoding {
   
   var addressCards = [AddressCard]()
-  var letter = ""
-//  var count = 0
 
-  
   override init() {
-    super.init()
-  }
- 
-  init(letter: String) {
-    self.letter = letter
     super.init()
   }
   
@@ -28,7 +20,7 @@ class AddressBook: NSObject, NSCoding {
     addressCards.append(card)
     addressCards.sortInPlace{ $0.surname.compare($1.surname) == .OrderedAscending
     }
-//    print("The Addressbok has a new entry and was succsessfully sorted.")
+    print("The Addressbok has a new entry and was succsessfully sorted.")
   }
   
   func removeCard(card: AddressCard){
@@ -61,7 +53,7 @@ class AddressBook: NSObject, NSCoding {
   
   func saveToFile(path: String){
     if NSKeyedArchiver.archiveRootObject(addressCards, toFile: path){
-      //            print("Saving succeeded")
+    print("Saving succeeded")
     }
   }
   
@@ -70,11 +62,9 @@ class AddressBook: NSObject, NSCoding {
       as? [AddressCard] {
         print("The loading process was successful")
         addressCards = newAddressBook
-//        count = addressCards.count //update count
     } else {
       print("The loading process was NOT successful!")
       self.addressCards = [AddressCard]()
-//      count = 0
     }
   }
   

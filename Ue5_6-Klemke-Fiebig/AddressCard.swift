@@ -106,7 +106,6 @@ class AddressCard: NSObject, NSCoding {
   }
   
   
-  
   func encodeWithCoder(aCoder: NSCoder){
     aCoder.encodeObject(name, forKey: "name")
     aCoder.encodeObject(surname, forKey: "surname")
