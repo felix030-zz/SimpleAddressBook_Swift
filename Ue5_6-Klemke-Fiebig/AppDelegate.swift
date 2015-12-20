@@ -13,7 +13,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
   
   var window: UIWindow?
   var objects = AddressBook()
-  let path: String = "book.archive"
+  var filename: String = ""
+  let urls = NSFileManager.defaultManager().URLsForDirectory(  .DocumentDirectory, inDomains: .UserDomainMask)
+  
+  
+  func saveMe(){
+    let url = urls[urls.count-1] as NSURL
+    if let path = url.path {
+      filename = (path as NSString).stringByAppendingPathComponent("book.archive")
+      objects.saveToFile(filename)
+    }
+  }
+  
+  func loadMe(){
+    let url = urls[urls.count-1] as NSURL
+    if let path = url.path {
+      filename = (path as NSString).stringByAppendingPathComponent("book.archive")
+      objects.loadFile(filename)
+    }
+  }
+  
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
@@ -47,19 +66,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
   }
   
   func addTestData(){
-    //creating contatcs
-    let testContact1 = AddressCard(name: "Felix", surname: "Klemke", street: "Kiautschoustr.", houseNbr: 19, zipCode: 13353, city: "Berlin", hobbies: ["Swift 2.1", "Swift 2.2"], friends: nil, imageName: UIImage(named: "FelixKlemke.png"))
-    let testContact2 = AddressCard(name: "Julian", surname: "Fiebig", street: "Ostseestr.", houseNbr: 88, zipCode: 12333, city: "Berlin", hobbies: ["Fußball", "Union"], friends: nil, imageName: UIImage(named: "JulianFiebig.png"))
-    let testContact3 = AddressCard(name: "Leon", surname: "Ehrenberg", street: "Kantstr.", houseNbr: 66, zipCode: 10303, city: "Berlin", hobbies: ["Tantra", "Prokrastination"], friends: nil, imageName: UIImage(named: "LeonEhrenberg.png"))
-    let testContact4 = AddressCard(name: "Johnny", surname: "TheSnake", street: "Berliner Allee.", houseNbr: 129, zipCode: 13086, city: "Berlin", hobbies: ["Bird watching", "Collecting Tea Bag Covers"], friends: nil, imageName: UIImage(named: "JohnnyTheSnake.png"))
-    let testContact5 = AddressCard(name: "Gregor", surname: "Klamke", street: "Tassostr.", houseNbr: 21, zipCode: 13386, city: "Berlin", hobbies: ["Company of Heros", "Carving Egg Shells"], friends: nil, imageName: UIImage(named: "GregorKlemke.png"))
-    addContact(testContact1)
-    objects.saveToFile(path)
-    addContact(testContact2)
-    addContact(testContact3)
-    addContact(testContact4)
-    addContact(testContact5)
-
+//    //creating contatcs
+//    let testContact1 = AddressCard(name: "Felix", surname: "Klemke", street: "Kiautschoustr.", houseNbr: 19, zipCode: 13353, city: "Berlin", hobbies: ["Swift 2.1", "Swift 2.2"], friends: nil, imageName: "FelixKlemke.png")
+//    let testContact2 = AddressCard(name: "Julian", surname: "Fiebig", street: "Ostseestr.", houseNbr: 88, zipCode: 12333, city: "Berlin", hobbies: ["Fußball", "Union"], friends: nil, imageName: "JulianFiebig.png")
+//    let testContact3 = AddressCard(name: "Leon", surname: "Ehrenberg", street: "Kantstr.", houseNbr: 66, zipCode: 10303, city: "Berlin", hobbies: ["Tantra", "Prokrastination"], friends: nil, imageName: "LeonEhrenberg.png")
+//    let testContact4 = AddressCard(name: "Johnny", surname: "TheSnake", street: "Berliner Allee.", houseNbr: 129, zipCode: 13086, city: "Berlin", hobbies: ["Bird watching", "Collecting Tea Bag Covers"], friends: nil, imageName: "JohnnyTheSnake.png")
+//    let testContact5 = AddressCard(name: "Gregor", surname: "Klamke", street: "Tassostr.", houseNbr: 21, zipCode: 13386, city: "Berlin", hobbies: ["Company of Heros", "Carving Egg Shells"], friends: nil, imageName: "GregorKlemke.png")
+//    
+//    addContact(testContact1)
+//    addContact(testContact2)
+//    addContact(testContact3)
+//    addContact(testContact4)
+//    addContact(testContact5)
+//    saveMe()
+  loadMe()
   }
   
   func addContact(addrsCard: AddressCard){
@@ -68,13 +88,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     print("addrsCard added")
   }
   
-  func save(){
-    objects.saveToFile(path)
-  }
   
-  func load(){
-    objects.loadFile(path)
-  }
+
   // MARK: - Split view
   
   func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController, ontoPrimaryViewController primaryViewController:UIViewController) -> Bool {

@@ -12,19 +12,18 @@ class MasterViewController: UITableViewController {
   
   var detailViewController: DetailViewController? = nil
   var objects = AddressBook()
-
-  
   
   //TODO has to be done differentyl
-//  override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//    let aLetterSection = letterSections.addressCards[section]
-//    return aLetterSection.letter
-//  }
+  //  override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+  //    let aLetterSection = letterSections.addressCards[section]
+  //    return aLetterSection.letter
+  //  }
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
     //adding test data
-//    addTestData()
+    //    addTestData()
     
     
     // Do any additional setup after loading the view, typically from a nib.
@@ -35,12 +34,12 @@ class MasterViewController: UITableViewController {
       let controllers = split.viewControllers
       self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
     }
-
+    
     //TODO put back
     if let del = UIApplication.sharedApplication().delegate as? AppDelegate{
       //mit diesem produkt kommt man überall an die daten des AppDelegate
       del.addTestData()
-//      del.load()
+      //      del.load()
       objects = del.objects
     }
   }
@@ -55,12 +54,12 @@ class MasterViewController: UITableViewController {
     // Dispose of any resources that can be recreated.
   }
   
-//    func insertNewObject(sender: AnyObject) {
-//      objects.insert(NSDate(), atIndex: 0)
-//      let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-//      self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-//    }
-
+  //    func insertNewObject(sender: AnyObject) {
+  //      objects.insert(NSDate(), atIndex: 0)
+  //      let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+  //      self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+  //    }
+  
   // MARK: - Segues
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showDetail" {
@@ -75,24 +74,24 @@ class MasterViewController: UITableViewController {
   }
   
   // MARK: - Table View
-//  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//    return objects.addressCards.count
-//  }
+  //  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  //    return objects.addressCards.count
+  //  }
   
-//  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-////    return objects.differentSurnameInitialLetters.count
-//    return 5
-//  }
+  //  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  ////    return objects.differentSurnameInitialLetters.count
+  //    return 5
+  //  }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return objects.addressCards.count
   }
   
-//  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//    let section = letterSections.addressCards[section]
-//    return section.addressCards.count
-//  }
-
+  //  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  //    let section = letterSections.addressCards[section]
+  //    return section.addressCards.count
+  //  }
+  
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
     //    let object = objects[indexPath.row] as! AddressCard
@@ -100,8 +99,8 @@ class MasterViewController: UITableViewController {
     cell.textLabel!.text = "\(object.name) \(object.surname)"
     cell.detailTextLabel?.text = "\(object.street). \(object.houseNbr) \(object.zipCode) \(object.city)"
     
-    if let imageView = cell.imageView, bugImage = object.image {
-      imageView.image = bugImage
+    if let imageView = cell.imageView, image = object.image {
+      imageView.image = UIImage(named: image)
     }
     return cell
   }
@@ -119,6 +118,6 @@ class MasterViewController: UITableViewController {
       // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
   }
-
+  
 }
 

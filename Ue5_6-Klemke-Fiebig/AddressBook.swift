@@ -11,7 +11,7 @@ import Foundation
 class AddressBook: NSObject, NSCoding {
   
   var addressCards = [AddressCard]()
-
+  
   override init() {
     super.init()
   }
@@ -53,13 +53,12 @@ class AddressBook: NSObject, NSCoding {
   
   func saveToFile(path: String){
     if NSKeyedArchiver.archiveRootObject(addressCards, toFile: path){
-    print("Saving succeeded")
+      print("Saving succeeded")
     }
   }
   
   func loadFile(path: String){
-    if let newAddressBook = NSKeyedUnarchiver.unarchiveObjectWithFile(path)
-      as? [AddressCard] {
+    if let newAddressBook = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? [AddressCard] {
         print("The loading process was successful")
         addressCards = newAddressBook
     } else {

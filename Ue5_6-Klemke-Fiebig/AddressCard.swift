@@ -19,17 +19,13 @@ class AddressCard: NSObject, NSCoding {
   var city: String = ""
   var hobbies = [String]()
   var friends = [AddressCard]()
-  var image: UIImage?
+  var image: String? = ""
+  
   var firstSurnameLetter: String{
     get{
       let firstChar = surname[surname.capitalizedString.startIndex]
       return String(firstChar)
     }
-  }
-  
-  func getFirstSurnameLetter() -> String {
-    let firstChar = surname[surname.capitalizedString.startIndex]
-    return String(firstChar)
   }
   
   override init(){
@@ -62,7 +58,7 @@ class AddressCard: NSObject, NSCoding {
     super.init()
   }
   
-  init(name: String, surname: String, street: String, houseNbr: Int, zipCode: Int, city: String, hobbies: [String]?, friends: [AddressCard]?, imageName: UIImage?){
+  init(name: String, surname: String, street: String, houseNbr: Int, zipCode: Int, city: String, hobbies: [String]?, friends: [AddressCard]?, imageName: String?){
     self.name = name
     self.surname = surname
     self.street = street
@@ -115,6 +111,7 @@ class AddressCard: NSObject, NSCoding {
     aCoder.encodeObject(city, forKey: "city")
     aCoder.encodeObject(hobbies, forKey: "hobbies")
     aCoder.encodeObject(friends, forKey: "friends")
+    aCoder.encodeObject(image, forKey: "image")
   }
   
   required init?(coder aDecoder: NSCoder){
@@ -141,6 +138,9 @@ class AddressCard: NSObject, NSCoding {
     }
     if let friends = aDecoder.decodeObjectForKey("friends") as? [AddressCard] {
       self.friends = friends
+    }
+    if let imageName = aDecoder.decodeObjectForKey("image") as? String {
+      self.image = imageName
     }
   }
   
