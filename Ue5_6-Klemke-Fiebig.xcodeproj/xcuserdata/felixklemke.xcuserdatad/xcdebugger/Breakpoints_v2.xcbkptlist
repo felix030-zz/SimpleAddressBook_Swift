@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ue5_6-Klemke-Fiebig/AddressCard.swift"
-            timestampString = "471559770.645202"
+            timestampString = "471948152.290486"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ue5_6-Klemke-Fiebig/AddressCard.swift"
-            timestampString = "471628241.136826"
+            timestampString = "471948152.290486"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "init(name:surname:street:houseNbr:zipCode:city:hobbies:friends:imageName:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ue5_6-Klemke-Fiebig/MasterViewController.swift"
-            timestampString = "471631037.882289"
+            timestampString = "471909129.930599"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "MasterViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -57,14 +57,61 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Ue5_6-Klemke-Fiebig/AddressBook.swift"
-            timestampString = "471617975.472063"
+            filePath = "Ue5_6-Klemke-Fiebig/AppDelegate.swift"
+            timestampString = "472321880.107046"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "11"
-            endingLineNumber = "11"
-            landmarkName = "AddressBook"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "AppDelegate"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ue5_6_Klemke_Fiebig.AppDelegate.__deallocating_deinit"
+                  moduleName = "Ue5_6-Klemke-Fiebig"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/felixklemke/Documents/SWIFT%20Workspace/OSX/Ue5-6-Klemke-Fiebig/Ue5_6-Klemke-Fiebig/Ue5_6-Klemke-Fiebig/AppDelegate.swift"
+                  timestampString = "472321880.124969"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ue5_6_Klemke_Fiebig.AppDelegate.init (Ue5_6_Klemke_Fiebig.AppDelegate.Type)() -&gt; Ue5_6_Klemke_Fiebig.AppDelegate"
+                  moduleName = "Ue5_6-Klemke-Fiebig"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/felixklemke/Documents/SWIFT%20Workspace/OSX/Ue5-6-Klemke-Fiebig/Ue5_6-Klemke-Fiebig/Ue5_6-Klemke-Fiebig/AppDelegate.swift"
+                  timestampString = "472321880.129079"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "main"
+                  moduleName = "Ue5_6-Klemke-Fiebig"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/felixklemke/Documents/SWIFT%20Workspace/OSX/Ue5-6-Klemke-Fiebig/Ue5_6-Klemke-Fiebig/Ue5_6-Klemke-Fiebig/AppDelegate.swift"
+                  timestampString = "472321880.12923"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
