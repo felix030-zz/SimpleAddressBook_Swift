@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Ue5_6-Klemke-Fiebig
 //
-//  Created by Felix E.C. Klemke on 11/12/15.
+//  Created by Felix E.C. Klemke & Julian Fiebig on 11/12/15.
 //  Copyright © 2015 Felix Klemke. All rights reserved.
 //
 
@@ -36,10 +36,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
+    
+    NSThread.sleepForTimeInterval(2.5)
+    
     let splitViewController = self.window!.rootViewController as! UISplitViewController
     let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
     navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
     splitViewController.delegate = self
+    
     return true
   }
   

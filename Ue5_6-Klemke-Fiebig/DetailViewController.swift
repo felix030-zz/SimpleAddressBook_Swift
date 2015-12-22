@@ -2,7 +2,7 @@
 //  DetailViewController.swift
 //  Ue5_6-Klemke-Fiebig
 //
-//  Created by Felix E.C. Klemke on 11/12/15.
+//  Created by Felix E.C. Klemke & Julian Fiebig on 11/12/15.
 //  Copyright © 2015 Felix Klemke. All rights reserved.
 //
 

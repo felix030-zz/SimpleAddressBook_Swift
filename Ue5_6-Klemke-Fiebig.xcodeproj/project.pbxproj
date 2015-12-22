@@ -21,6 +21,7 @@
 		778921ED1C1C7F330051855D /* JulianFiebig.png in Resources */ = {isa = PBXBuildFile; fileRef = 778921E81C1C7F330051855D /* JulianFiebig.png */; };
 		778921EE1C1C7F330051855D /* FelixKlemke.png in Resources */ = {isa = PBXBuildFile; fileRef = 778921E91C1C7F330051855D /* FelixKlemke.png */; };
 		778921EF1C1C7F330051855D /* GregorKlemke.png in Resources */ = {isa = PBXBuildFile; fileRef = 778921EA1C1C7F330051855D /* GregorKlemke.png */; };
+		BFADA13C1C273FF300588667 /* contacts.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BFADA13B1C273FF300588667 /* contacts.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		778921E81C1C7F330051855D /* JulianFiebig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JulianFiebig.png; sourceTree = "<group>"; };
 		778921E91C1C7F330051855D /* FelixKlemke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FelixKlemke.png; sourceTree = "<group>"; };
 		778921EA1C1C7F330051855D /* GregorKlemke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GregorKlemke.png; sourceTree = "<group>"; };
+		BFADA13B1C273FF300588667 /* contacts.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = contacts.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		7788AF921C1B6FBD007A7861 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				BFADA13B1C273FF300588667 /* contacts.jpg */,
 				778921E61C1C7F330051855D /* LeonEhrenberg.png */,
 				777F157B1C2002CA00F5061E /* Dummy.png */,
 				778921E71C1C7F330051855D /* JohnnyTheSnake.png */,
@@ -162,6 +165,7 @@
 				778921EC1C1C7F330051855D /* JohnnyTheSnake.png in Resources */,
 				778921EF1C1C7F330051855D /* GregorKlemke.png in Resources */,
 				778921EE1C1C7F330051855D /* FelixKlemke.png in Resources */,
+				BFADA13C1C273FF300588667 /* contacts.jpg in Resources */,
 				7788AF871C1B48F9007A7861 /* LaunchScreen.storyboard in Resources */,
 				777F157C1C2002CA00F5061E /* Dummy.png in Resources */,
 				7788AF841C1B48F9007A7861 /* Assets.xcassets in Resources */,
