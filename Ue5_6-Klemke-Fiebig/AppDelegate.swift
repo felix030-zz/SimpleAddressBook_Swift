@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
   var filename: String = ""
   let urls = NSFileManager.defaultManager().URLsForDirectory(  .DocumentDirectory, inDomains: .UserDomainMask)
   
-  
   func saveMe(){
     let url = urls[urls.count-1] as NSURL
     if let path = url.path {
@@ -33,10 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
   }
   
-  
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
-    
     NSThread.sleepForTimeInterval(2.5)
     
     let splitViewController = self.window!.rootViewController as! UISplitViewController
@@ -76,7 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 //    let testContact3 = AddressCard(name: "Leon", surname: "Ehrenberg", street: "Kantstr.", houseNbr: 66, zipCode: 10303, city: "Berlin", hobbies: ["Tantra", "Prokrastination"], friends: nil, imageName: "LeonEhrenberg.png")
 //    let testContact4 = AddressCard(name: "Johnny", surname: "TheSnake", street: "Berliner Allee.", houseNbr: 129, zipCode: 13086, city: "Berlin", hobbies: ["Bird watching", "Collecting Tea Bag Covers"], friends: nil, imageName: "JohnnyTheSnake.png")
 //    let testContact5 = AddressCard(name: "Gregor", surname: "Klamke", street: "Tassostr.", houseNbr: 21, zipCode: 13386, city: "Berlin", hobbies: ["Company of Heros", "Carving Egg Shells"], friends: nil, imageName: "GregorKlemke.png")
-//    
 //    addContact(testContact1)
 //    addContact(testContact2)
 //    addContact(testContact3)
@@ -91,11 +87,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     objects.addCard(addrsCard)
     print("addrsCard added")
   }
-  
-  
 
   // MARK: - Split view
-  
   func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController, ontoPrimaryViewController primaryViewController:UIViewController) -> Bool {
     guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
     guard let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController else { return false }

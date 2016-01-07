@@ -12,19 +12,11 @@ class MasterViewController: UITableViewController {
   
   var detailViewController: DetailViewController? = nil
   var objects = AddressBook()
-  
-  //TODO has to be done differentyl
-  //  override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-  //    let aLetterSection = letterSections.addressCards[section]
-  //    return aLetterSection.letter
-  //  }
-  
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     //adding test data
     //    addTestData()
-    
     
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem()
@@ -35,12 +27,10 @@ class MasterViewController: UITableViewController {
       self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
     }
     
-    //TODO put back
-    if let del = UIApplication.sharedApplication().delegate as? AppDelegate{
+    if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate{
       //mit diesem produkt kommt man überall an die daten des AppDelegate
-      del.addTestData()
-      //      del.load()
-      objects = del.objects
+      delegate.addTestData()
+      objects = delegate.objects
     }
   }
   
@@ -61,45 +51,44 @@ class MasterViewController: UITableViewController {
   //    }
   
   // MARK: - Segues
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "showDetail" {
-      if let indexPath = self.tableView.indexPathForSelectedRow {
-        let object = objects
-        let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-        controller.detailItem = object
-        controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-        controller.navigationItem.leftItemsSupplementBackButton = true
-      }
-    }
+//  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//    if segue.identifier == "showDetail" {
+//      if let indexPath = self.tableView.indexPathForSelectedRow {
+//        let object = objects
+//        let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+//        controller.detailItem = object
+//        controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+//        controller.navigationItem.leftItemsSupplementBackButton = true
+//      }
+//    }
+//  }
+  
+  // MARK: - Sections
+  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    return objects.getNbrOfSections()
+  }
+  
+  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return objects.getNbrOfRowForSection(section)
+  }
+  
+  override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return String(objects.sections[section])
   }
   
   // MARK: - Table View
-  //  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-  //    return objects.addressCards.count
-  //  }
-  
-  //  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-  ////    return objects.differentSurnameInitialLetters.count
-  //    return 5
-  //  }
-  
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return objects.addressCards.count
-  }
-  
-  //  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-  //    let section = letterSections.addressCards[section]
-  //    return section.addressCards.count
-  //  }
-  
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
     //    let object = objects[indexPath.row] as! AddressCard
-    let object = objects.addressCards[indexPath.row]
-    cell.textLabel!.text = "\(object.name) \(object.surname)"
-    cell.detailTextLabel?.text = "\(object.street). \(object.houseNbr) \(object.zipCode) \(object.city)"
     
-    if let imageView = cell.imageView, image = object.image {
+    let adrsCardSection = objects.getCellFromSectionIndexPath(indexPath.section)
+    let adrsCard = adrsCardSection[indexPath.row]
+    
+    
+    cell.textLabel!.text = "\(adrsCard.name) \(adrsCard.surname)"
+    cell.detailTextLabel?.text = "\(adrsCard.street). \(adrsCard.houseNbr) \(adrsCard.zipCode) \(adrsCard.city)"
+    
+    if let imageView = cell.imageView, image = adrsCard.image {
       imageView.image = UIImage(named: image)
     }
     return cell

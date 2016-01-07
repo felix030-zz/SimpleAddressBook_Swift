@@ -21,10 +21,10 @@ class AddressCard: NSObject, NSCoding {
   var friends = [AddressCard]()
   var image: String? = ""
   
-  var firstSurnameLetter: String{
+  var firstSurnameLetter: Character{
     get{
       let firstChar = surname[surname.capitalizedString.startIndex]
-      return String(firstChar)
+      return firstChar
     }
   }
   

@@ -11,9 +11,43 @@ import Foundation
 class AddressBook: NSObject, NSCoding {
   
   var addressCards = [AddressCard]()
+  var sections = [Character]()
   
   override init() {
     super.init()
+  }
+  
+  func getNbrOfSections() -> Int{
+    for addressCard in addressCards {
+      if(!sections.contains(addressCard.firstSurnameLetter)){
+        sections.append(addressCard.firstSurnameLetter)
+        sections.sortInPlace()
+      }
+    }
+    return sections.count
+  }
+  
+  func getNbrOfRowForSection(section: Int) -> Int{
+    var letter = sections[section]
+    var count = 0
+    for addressCard in addressCards {
+      if(addressCard.firstSurnameLetter == letter){
+        count++
+      }
+    }
+    return count
+  }
+  
+  func getCellFromSectionIndexPath(section: Int) -> [AddressCard]{
+    var sectionAdrsCards = [AddressCard]()
+    var letter = sections[section]
+    
+    for addressCard in addressCards {
+      if(addressCard.firstSurnameLetter == letter){
+        sectionAdrsCards.append(addressCard)
+      }
+    }
+    return sectionAdrsCards
   }
   
   func addCard(card: AddressCard){

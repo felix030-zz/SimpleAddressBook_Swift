@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77577B681C3F11B8004022B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77577B671C3F11B8004022B5 /* Main.storyboard */; };
 		777F157C1C2002CA00F5061E /* Dummy.png in Resources */ = {isa = PBXBuildFile; fileRef = 777F157B1C2002CA00F5061E /* Dummy.png */; };
 		7788AF7B1C1B48F9007A7861 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7788AF7A1C1B48F9007A7861 /* AppDelegate.swift */; };
 		7788AF7D1C1B48F9007A7861 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7788AF7C1C1B48F9007A7861 /* MasterViewController.swift */; };
 		7788AF7F1C1B48F9007A7861 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7788AF7E1C1B48F9007A7861 /* DetailViewController.swift */; };
-		7788AF821C1B48F9007A7861 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7788AF801C1B48F9007A7861 /* Main.storyboard */; };
 		7788AF841C1B48F9007A7861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7788AF831C1B48F9007A7861 /* Assets.xcassets */; };
 		7788AF871C1B48F9007A7861 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7788AF851C1B48F9007A7861 /* LaunchScreen.storyboard */; };
 		7788AF901C1B5476007A7861 /* AddressCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7788AF8E1C1B5476007A7861 /* AddressCard.swift */; };
@@ -21,16 +21,16 @@
 		778921ED1C1C7F330051855D /* JulianFiebig.png in Resources */ = {isa = PBXBuildFile; fileRef = 778921E81C1C7F330051855D /* JulianFiebig.png */; };
 		778921EE1C1C7F330051855D /* FelixKlemke.png in Resources */ = {isa = PBXBuildFile; fileRef = 778921E91C1C7F330051855D /* FelixKlemke.png */; };
 		778921EF1C1C7F330051855D /* GregorKlemke.png in Resources */ = {isa = PBXBuildFile; fileRef = 778921EA1C1C7F330051855D /* GregorKlemke.png */; };
-		BFADA13C1C273FF300588667 /* contacts.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BFADA13B1C273FF300588667 /* contacts.jpg */; };
+		77C42D1B1C299CD2000518AD /* contacts.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77C42D1A1C299CD2000518AD /* contacts.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77577B671C3F11B8004022B5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		777F157B1C2002CA00F5061E /* Dummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dummy.png; sourceTree = "<group>"; };
 		7788AF771C1B48F9007A7861 /* Ue5_6-Klemke-Fiebig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ue5_6-Klemke-Fiebig.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7788AF7A1C1B48F9007A7861 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7788AF7C1C1B48F9007A7861 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		7788AF7E1C1B48F9007A7861 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		7788AF811C1B48F9007A7861 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7788AF831C1B48F9007A7861 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7788AF861C1B48F9007A7861 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7788AF881C1B48F9007A7861 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		778921E81C1C7F330051855D /* JulianFiebig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JulianFiebig.png; sourceTree = "<group>"; };
 		778921E91C1C7F330051855D /* FelixKlemke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FelixKlemke.png; sourceTree = "<group>"; };
 		778921EA1C1C7F330051855D /* GregorKlemke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GregorKlemke.png; sourceTree = "<group>"; };
-		BFADA13B1C273FF300588667 /* contacts.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = contacts.jpg; sourceTree = "<group>"; };
+		77C42D1A1C299CD2000518AD /* contacts.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = contacts.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +80,9 @@
 				7788AF7E1C1B48F9007A7861 /* DetailViewController.swift */,
 				7788AF8E1C1B5476007A7861 /* AddressCard.swift */,
 				7788AF8F1C1B5476007A7861 /* AddressBook.swift */,
-				7788AF801C1B48F9007A7861 /* Main.storyboard */,
 				7788AF831C1B48F9007A7861 /* Assets.xcassets */,
 				7788AF851C1B48F9007A7861 /* LaunchScreen.storyboard */,
+				77577B671C3F11B8004022B5 /* Main.storyboard */,
 				7788AF881C1B48F9007A7861 /* Info.plist */,
 			);
 			path = "Ue5_6-Klemke-Fiebig";
@@ -91,7 +91,7 @@
 		7788AF921C1B6FBD007A7861 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				BFADA13B1C273FF300588667 /* contacts.jpg */,
+				77C42D1A1C299CD2000518AD /* contacts.jpg */,
 				778921E61C1C7F330051855D /* LeonEhrenberg.png */,
 				777F157B1C2002CA00F5061E /* Dummy.png */,
 				778921E71C1C7F330051855D /* JohnnyTheSnake.png */,
@@ -162,15 +162,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				778921EB1C1C7F330051855D /* LeonEhrenberg.png in Resources */,
+				77577B681C3F11B8004022B5 /* Main.storyboard in Resources */,
 				778921EC1C1C7F330051855D /* JohnnyTheSnake.png in Resources */,
 				778921EF1C1C7F330051855D /* GregorKlemke.png in Resources */,
 				778921EE1C1C7F330051855D /* FelixKlemke.png in Resources */,
-				BFADA13C1C273FF300588667 /* contacts.jpg in Resources */,
 				7788AF871C1B48F9007A7861 /* LaunchScreen.storyboard in Resources */,
 				777F157C1C2002CA00F5061E /* Dummy.png in Resources */,
+				77C42D1B1C299CD2000518AD /* contacts.jpg in Resources */,
 				7788AF841C1B48F9007A7861 /* Assets.xcassets in Resources */,
 				778921ED1C1C7F330051855D /* JulianFiebig.png in Resources */,
-				7788AF821C1B48F9007A7861 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,14 +192,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7788AF801C1B48F9007A7861 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7788AF811C1B48F9007A7861 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7788AF851C1B48F9007A7861 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

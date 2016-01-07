@@ -10,21 +10,6 @@ import UIKit
 
 class DetailViewController: UIViewController {
   
-  @IBOutlet weak var detailDescriptionLabel: UILabel!
-  
-  @IBOutlet weak var txfName: UITextField!
-  @IBOutlet weak var txfSurname: UITextField!
-  @IBOutlet weak var txfStreet: UITextField!
-  @IBOutlet weak var txfNbr: UITextField!
-  @IBOutlet weak var txfZip: UITextField!
-  @IBOutlet weak var txfCity: UITextField!
-  
-  @IBOutlet weak var lblName: UILabel!
-  @IBOutlet weak var lblSurname: UILabel!
-  @IBOutlet weak var lblStreet: UILabel!
-  @IBOutlet weak var lblNbr: UILabel!
-  @IBOutlet weak var lblZip: UILabel!
-  @IBOutlet weak var lblCity: UILabel!
   
   var detailItem: AnyObject? {
     didSet {
@@ -35,11 +20,7 @@ class DetailViewController: UIViewController {
   
   func configureView() {
     // Update the user interface for the detail item.
-    if let detail = self.detailItem {
-      if let label = self.detailDescriptionLabel {
-        label.text = detail.description
-      }
-    }
+
   }
   
   override func viewDidLoad() {
@@ -51,12 +32,7 @@ class DetailViewController: UIViewController {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
-  }
-  
-  @IBAction func test(sender: UIBarButtonItem) {
-    
-  }
-  
+  }  
   
   
 }
