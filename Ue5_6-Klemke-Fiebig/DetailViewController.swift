@@ -10,6 +10,14 @@ import UIKit
 
 class DetailViewController: UIViewController {
   
+  @IBOutlet weak var nameLBL: UILabel!
+  @IBOutlet weak var surnameLBL: UILabel!
+  @IBOutlet weak var streetLBL: UILabel!
+  @IBOutlet weak var houseLBL: UILabel!
+  @IBOutlet weak var cityLBL: UILabel!
+  @IBOutlet weak var zipcodeLBL: UILabel!
+  @IBOutlet weak var hobbiesLBL: UILabel!
+  @IBOutlet weak var friendsLBL: UILabel!
   
   var detailItem: AnyObject? {
     didSet {
@@ -32,7 +40,7 @@ class DetailViewController: UIViewController {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
-  }  
+  }
   
   
 }

@@ -51,17 +51,17 @@ class MasterViewController: UITableViewController {
   //    }
   
   // MARK: - Segues
-//  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//    if segue.identifier == "showDetail" {
-//      if let indexPath = self.tableView.indexPathForSelectedRow {
-//        let object = objects
-//        let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-//        controller.detailItem = object
-//        controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-//        controller.navigationItem.leftItemsSupplementBackButton = true
-//      }
-//    }
-//  }
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showDetail" {
+      if let indexPath = self.tableView.indexPathForSelectedRow {
+        let object = objects
+        let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+        controller.detailItem = object
+        controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+        controller.navigationItem.leftItemsSupplementBackButton = true
+      }
+    }
+  }
   
   // MARK: - Sections
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -83,7 +83,6 @@ class MasterViewController: UITableViewController {
     
     let adrsCardSection = objects.getCellFromSectionIndexPath(indexPath.section)
     let adrsCard = adrsCardSection[indexPath.row]
-    
     
     cell.textLabel!.text = "\(adrsCard.name) \(adrsCard.surname)"
     cell.detailTextLabel?.text = "\(adrsCard.street). \(adrsCard.houseNbr) \(adrsCard.zipCode) \(adrsCard.city)"

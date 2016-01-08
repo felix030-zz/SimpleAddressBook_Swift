@@ -57,6 +57,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="contacts.jpg" width="700" height="700"/>
+        <image name="contacts.jpg" width="50" height="50"/>
     </resources>
 </document>
