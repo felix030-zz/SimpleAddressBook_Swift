@@ -105,11 +105,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ue5_6-Klemke-Fiebig/MasterViewController.swift"
-            timestampString = "473947077.305238"
+            timestampString = "474244062.176796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "insertNewObject(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -121,11 +121,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ue5_6-Klemke-Fiebig/DetailViewController.swift"
-            timestampString = "474221076.716805"
+            timestampString = "474244062.176796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "DetailViewController"
             landmarkType = "3">
          </BreakpointContent>

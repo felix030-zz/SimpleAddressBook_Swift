@@ -12,11 +12,13 @@ class MasterViewController: UITableViewController {
   
   var detailViewController: DetailViewController? = nil
   var objects = AddressBook()
+  var indexPathFromDetail = NSIndexPath()
+  var adrsCardFromDetail = AddressCard()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     //adding test data
-    //    addTestData()
+    //addTestData()
     
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem()
@@ -32,6 +34,12 @@ class MasterViewController: UITableViewController {
       delegate.addTestData()
       objects = delegate.objects
     }
+  }
+  
+  func refreshData(){
+    let adrsCardSection = objects.getCellFromSectionIndexPath(indexPathFromDetail.section)
+    let adrsCard = adrsCardSection[indexPathFromDetail.row]
+
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -53,32 +61,18 @@ class MasterViewController: UITableViewController {
   // MARK: - Segues
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showDetail" {
-        if let indexPath = self.tableView.indexPathForSelectedRow {
-          
-          let adrsCardSection = objects.getCellFromSectionIndexPath(indexPath.section)
-          let adrsCard = adrsCardSection[indexPath.row]
-          
-          let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-          controller.adrsCard = adrsCard
-          controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-          controller.navigationItem.leftItemsSupplementBackButton = true          
-        }
-      
+      if let indexPath = self.tableView.indexPathForSelectedRow {
+        let adrsCardSection = objects.getCellFromSectionIndexPath(indexPath.section)
+        let adrsCard = adrsCardSection[indexPath.row]
+        
+        let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+        controller.adrsCard = adrsCard
+        controller.indexPath = indexPath
+        controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+        controller.navigationItem.leftItemsSupplementBackButton = true
+      }
     }
   }
-  
-
-  
-  
-  //  if let indexPath = self.tableView.indexPathForSelectedRow {
-  //    let object = objects
-  //
-  //
-  //    let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-  //    controller.detailItem = object
-  //    controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-  //    controller.navigationItem.leftItemsSupplementBackButton = true
-  //  }
   
   // MARK: - Sections
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

@@ -10,16 +10,15 @@ import UIKit
 
 class DetailViewController: UIViewController {
   
-  @IBOutlet weak var nameLBL: UILabel!
-  @IBOutlet weak var surnameLBL: UILabel!
-  @IBOutlet weak var streetLBL: UILabel!
-  @IBOutlet weak var houseLBL: UILabel!
-  @IBOutlet weak var cityLBL: UILabel!
-  @IBOutlet weak var zipcodeLBL: UILabel!
-  @IBOutlet weak var hobbiesLBL: UILabel!
-  @IBOutlet weak var friendsLBL: UILabel!
-  var adrsCard = AddressCard()
   
+  @IBOutlet weak var nameTF: UITextField!
+  @IBOutlet weak var surnameTF: UITextField!
+  @IBOutlet weak var addressTF: UITextField!
+  @IBOutlet weak var cityTF: UITextField!
+  @IBOutlet weak var hobbiesTF: UITextField!
+  @IBOutlet weak var friendsTF: UITextField!
+  var adrsCard = AddressCard()
+  var indexPath = NSIndexPath()
   
   var detailItem: AnyObject? {
     didSet {
@@ -30,23 +29,18 @@ class DetailViewController: UIViewController {
   
   func configureView() {
     // Update the user interface for the detail item.
-
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
-    nameLBL.text = adrsCard.name
-    surnameLBL.text = adrsCard.surname
-    streetLBL.text = adrsCard.street
-    houseLBL.text = String(adrsCard.houseNbr)
-    cityLBL.text = adrsCard.city
-    zipcodeLBL.text = String(adrsCard.zipCode)
-    hobbiesLBL.text = String(adrsCard.hobbies)
-    friendsLBL.text = String(adrsCard.friends)
-    
+    nameTF.text = adrsCard.name
+    surnameTF.text = adrsCard.surname
+    addressTF.text = "\(adrsCard.street) \(String(adrsCard.houseNbr))"
+    cityTF.text = "\(String(adrsCard.zipCode)) \(String(adrsCard.city))"
+    hobbiesTF.text = getHobbiesForArray(adrsCard.hobbies)
+    friendsTF.text = getStringForArrayAdrsc(adrsCard.friends)
     self.configureView()
-
   }
   
   override func didReceiveMemoryWarning() {
@@ -54,6 +48,39 @@ class DetailViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  func getHobbiesForArray(sArr: [String]) -> String {
+    var tempString = ""
+    for s in sArr {
+      if(tempString == ""){
+        tempString += "\(s)"
+      }else{
+        tempString += ", \(s)"
+      }
+    }
+    return tempString
+  }
+  
+  func getStringForArrayAdrsc(friends: [AddressCard]) -> String{
+    var tempString = ""
+    for f in friends {
+      if(tempString == ""){
+        tempString += "\(f.name) \(f.surname)"
+      }else{
+        tempString += ", \(f.name) \(f.surname)"
+      }
+    }
+    return tempString
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showDetail" {
+      let controller = (segue.destinationViewController as! UINavigationController).topViewController as! MasterViewController
+      controller.adrsCardFromDetail = adrsCard
+      controller.indexPathFromDetail = indexPath
+      controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+      controller.navigationItem.leftItemsSupplementBackButton = true
+    }
+  }
   
 }
 
