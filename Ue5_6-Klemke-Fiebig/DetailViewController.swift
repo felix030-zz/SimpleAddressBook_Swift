@@ -18,6 +18,8 @@ class DetailViewController: UIViewController {
   @IBOutlet weak var zipcodeLBL: UILabel!
   @IBOutlet weak var hobbiesLBL: UILabel!
   @IBOutlet weak var friendsLBL: UILabel!
+  var adrsCard = AddressCard()
+  
   
   var detailItem: AnyObject? {
     didSet {
@@ -34,7 +36,17 @@ class DetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+    nameLBL.text = adrsCard.name
+    surnameLBL.text = adrsCard.surname
+    streetLBL.text = adrsCard.street
+    houseLBL.text = String(adrsCard.houseNbr)
+    cityLBL.text = adrsCard.city
+    zipcodeLBL.text = String(adrsCard.zipCode)
+    hobbiesLBL.text = String(adrsCard.hobbies)
+    friendsLBL.text = String(adrsCard.friends)
+    
     self.configureView()
+
   }
   
   override func didReceiveMemoryWarning() {

@@ -53,17 +53,21 @@ class MasterViewController: UITableViewController {
   // MARK: - Segues
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showDetail" {
-      if let cont = segue.destinationViewController as? DetailViewController {
         if let indexPath = self.tableView.indexPathForSelectedRow {
-          //          cont.indexPath = indexPath
-          //          cont.book = book
           
           let adrsCardSection = objects.getCellFromSectionIndexPath(indexPath.section)
           let adrsCard = adrsCardSection[indexPath.row]
+          
+          let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+          controller.adrsCard = adrsCard
+          controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+          controller.navigationItem.leftItemsSupplementBackButton = true          
         }
-      }
+      
     }
   }
+  
+
   
   
   //  if let indexPath = self.tableView.indexPathForSelectedRow {
