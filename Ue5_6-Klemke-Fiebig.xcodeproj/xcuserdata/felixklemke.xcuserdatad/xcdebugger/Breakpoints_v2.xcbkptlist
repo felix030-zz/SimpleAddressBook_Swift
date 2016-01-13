@@ -121,11 +121,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ue5_6-Klemke-Fiebig/DetailViewController.swift"
-            timestampString = "474396993.070328"
+            timestampString = "474398005.353996"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "DetailViewController"
             landmarkType = "3">
          </BreakpointContent>

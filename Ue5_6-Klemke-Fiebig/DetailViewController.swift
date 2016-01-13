@@ -83,6 +83,7 @@ class DetailViewController: UIViewController {
   //TODO doesnt work for first letter
   @IBAction func surnameEdited(sender: AnyObject) {
     objects.updateCellAtIndexPath(indexPath, adrsCard: upadteAValue(surnameTF.text!, describtion: "surname"))
+    objects.refreshData()
   }
   //TODO refactor
   @IBAction func streetEdited(sender: AnyObject) {
