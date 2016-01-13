@@ -33,24 +33,24 @@ class AddressBook: NSObject, NSCoding {
     
   }
   
-  func updateCellAtIndexPath(idxPath: NSIndexPath, name: String){
+  func updateCellAtIndexPath(idxPath: NSIndexPath, adrsCard: AddressCard){
     let letter = sections[idxPath.section]
 
-    print("the letter we are looking for: \(letter)")
-    print("index section is: \(idxPath.section) row is: \(idxPath.row)")
+//    print("the letter we are looking for: \(letter)")
+//    print("index section is: \(idxPath.section) row is: \(idxPath.row)")
     
     var counter = 0
     for (index, element) in addressCards.enumerate() {
-      print("counter value within enumeration \(counter)")
+//      print("counter value within enumeration \(counter)")
       
       if(element.firstSurnameLetter == letter){
         if(counter < idxPath.row){
 
           counter++
-          print("counter incremented \(counter)")
+//          print("counter incremented \(counter)")
         }else if(counter == idxPath.row){
-          print("counter is == row")
-          element.name = name
+//          print("counter is == row")
+          addressCards[index] = adrsCard
           break
         }
       }

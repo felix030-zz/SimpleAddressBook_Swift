@@ -38,12 +38,10 @@ class DetailViewController: UIViewController {
     print("\(objects.getCellFromSectionIndexPathRow(indexPath).name)")
     
     // Do any additional setup after loading the view, typically from a nib.
-    
     nameTF.text = objects.getCellFromSectionIndexPathRow(indexPath).name
     surnameTF.text = objects.getCellFromSectionIndexPathRow(indexPath).surname
     addressTF.text = "\(objects.getCellFromSectionIndexPathRow(indexPath).street) \(String(objects.getCellFromSectionIndexPathRow(indexPath).houseNbr))"
     cityTF.text = "\(String(objects.getCellFromSectionIndexPathRow(indexPath).zipCode)) \(String(objects.getCellFromSectionIndexPathRow(indexPath).city))"
-
     hobbiesTF.text = getHobbiesForArray(objects.getCellFromSectionIndexPathRow(indexPath).hobbies)
     friendsTF.text = getStringForArrayAdrsc(objects.getCellFromSectionIndexPathRow(indexPath).friends)
     self.configureView()
@@ -79,30 +77,56 @@ class DetailViewController: UIViewController {
   }
   
   @IBAction func nameEdited(sender: AnyObject) {
-    objects.updateCellAtIndexPath(indexPath, name: nameTF.text!)
+    objects.updateCellAtIndexPath(indexPath, adrsCard: upadteAValue(nameTF.text!, describtion: "name"))
+  }
+  //TODO doesnt work for first letter
+  @IBAction func surnameEdited(sender: AnyObject) {
+    objects.updateCellAtIndexPath(indexPath, adrsCard: upadteAValue(surnameTF.text!, describtion: "surname"))
+  }
+  @IBAction func streetEdited(sender: AnyObject) {
+    let addressArr = addressTF.text!.componentsSeparatedByString(" ")
+    objects.updateCellAtIndexPath(indexPath, adrsCard: upadteAValue(addressArr[0], describtion: "street"))
+    objects.updateCellAtIndexPath(indexPath, adrsCard: upadteAValue(addressArr[1], describtion: "houseNbr"))
+  }
+  @IBAction func cityEdited(sender: AnyObject) {
+    let addressArr = cityTF.text!.componentsSeparatedByString(" ")
+//    print("\(Int(addressArr[0])!) \(addressArr[1])")
+    objects.updateCellAtIndexPath(indexPath, adrsCard: upadteAValue(addressArr[0], describtion: "zipCode"))
+    objects.updateCellAtIndexPath(indexPath, adrsCard: upadteAValue(addressArr[1], describtion: "city"))
+  }
+  @IBAction func hobbiesEdited(sender: AnyObject) {
+    objects.updateCellAtIndexPath(indexPath, adrsCard: upadteAValue(hobbiesTF.text!, describtion: "hobbies"))
+  }
+  @IBAction func friendsEdited(sender: AnyObject) {
   }
   
   
   
-//  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//    objects.updateCellAtIndexPath(indexPath, name: nameTF.text!)
-//    print("\(nameTF.text) in der prepare for seque")
-//    
-////    if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate{
-////      //mit diesem produkt kommt man überall an die daten des AppDelegate
-////      delegate.addTestData()
-////      objects = delegate.objects
-////    }
-//    
-////    objects.insertAtSectionAtIndex(indexPath, adrsCard: adrsCard)
-////    print("\(adrsCard.surname)")
-//    
-////    if segue.identifier == "showDetail" {
-////      let controller = (segue.destinationViewController as! UINavigationController).topViewController as! MasterViewController
-////      controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-////      controller.navigationItem.leftItemsSupplementBackButton = true
-////    }
-//  }
+  func upadteAValue(elementString: String, describtion: String) -> AddressCard{
+    let tempCard = objects.getCellFromSectionIndexPathRow(indexPath)
+    switch describtion {
+    case "name": tempCard.name = elementString
+    case "surname":
+      tempCard.surname = elementString
+      objects.refreshData()
+    case "street": tempCard.street = elementString
+    case "houseNbr": tempCard.houseNbr = Int(elementString)!
+    case "zipCode": tempCard.zipCode = Int(elementString)!
+    case "city": tempCard.city = elementString
+    case "hobbies":
+      let hobbiesArr = elementString.componentsSeparatedByString(", ")
+      tempCard.hobbies = hobbiesArr
+    case "friends":
+//      let friendsArr = elementString.componentsSeparatedByString(",")
+//      tempCard.friends
+      print("yeah change of friends :))")
+    default :
+      print("default in switch case was triggered")
+    }
+    
+    return tempCard
+  }
+
   
 }
 
