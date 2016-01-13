@@ -47,9 +47,11 @@ class MasterViewController: UITableViewController {
   }
   
   func insertNewObject(sender: AnyObject) {
-    //        objects.insert(NSDate(), atIndex: 0)
-    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-    self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+    let tempAdrsCard = AddressCard(name: "AddName", surname: "AddSurname", street: "", houseNbr: 0, zipCode: 00000, city: "Test", hobbies: nil, friends: nil, imageName: "mustache.png")
+    objects.addressCards.append(tempAdrsCard)
+    self.tableView.reloadData()
+//    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+//    self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
   }
   
   // MARK: - Segues

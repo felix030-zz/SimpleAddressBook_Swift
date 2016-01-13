@@ -35,10 +35,8 @@ class AddressBook: NSObject, NSCoding {
   
   func updateCellAtIndexPath(idxPath: NSIndexPath, adrsCard: AddressCard){
     let letter = sections[idxPath.section]
-
 //    print("the letter we are looking for: \(letter)")
 //    print("index section is: \(idxPath.section) row is: \(idxPath.row)")
-    
     var counter = 0
     for (index, element) in addressCards.enumerate() {
 //      print("counter value within enumeration \(counter)")
@@ -168,6 +166,15 @@ class AddressBook: NSObject, NSCoding {
     if let adrscard = getName(surname){
       print("\nName: \(adrscard.name) \(adrscard.surname) \nAddress: \(adrscard.street) \(adrscard.zipCode) \(adrscard.city) \nHobbies: \(adrscard.hobbies) Friends: \(adrscard.friends)\n")
     }
+  }
+  
+  func getAdrsCardForFullName(fullname: String) -> AddressCard?{
+    for adrsCard in addressCards{
+      if("\(adrsCard.name) \(adrsCard.surname)" == fullname){
+        return adrsCard
+      }
+    }
+    return nil
   }
   
   required init?(coder aDecoder: NSCoder){

@@ -93,6 +93,7 @@ class AddressCard: NSObject, NSCoding {
   
   func addFriend(friend: AddressCard){
     friends.append(friend)
+    print("friend \(friend.name) \(friend.surname) was added!")
   }
   
   func removeFriend(friend: AddressCard){

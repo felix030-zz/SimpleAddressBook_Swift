@@ -34,8 +34,8 @@ class DetailViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("\(indexPath.section) \(indexPath.row)")
-    print("\(objects.getCellFromSectionIndexPathRow(indexPath).name)")
+//    print("\(indexPath.section) \(indexPath.row)")
+//    print("\(objects.getCellFromSectionIndexPathRow(indexPath).name)")
     
     // Do any additional setup after loading the view, typically from a nib.
     nameTF.text = objects.getCellFromSectionIndexPathRow(indexPath).name
@@ -64,10 +64,11 @@ class DetailViewController: UIViewController {
     return tempString
   }
   
-  func getStringForArrayAdrsc(friends: [AddressCard]) -> String{
+  func getStringForArrayAdrsc(friends: [AddressCard]) -> String {
     var tempString = ""
+    
     for f in friends {
-      if(tempString == ""){
+      if(tempString.isEmpty){
         tempString += "\(f.name) \(f.surname)"
       }else{
         tempString += ", \(f.name) \(f.surname)"
@@ -83,14 +84,15 @@ class DetailViewController: UIViewController {
   @IBAction func surnameEdited(sender: AnyObject) {
     objects.updateCellAtIndexPath(indexPath, adrsCard: upadteAValue(surnameTF.text!, describtion: "surname"))
   }
+  //TODO refactor
   @IBAction func streetEdited(sender: AnyObject) {
     let addressArr = addressTF.text!.componentsSeparatedByString(" ")
     objects.updateCellAtIndexPath(indexPath, adrsCard: upadteAValue(addressArr[0], describtion: "street"))
     objects.updateCellAtIndexPath(indexPath, adrsCard: upadteAValue(addressArr[1], describtion: "houseNbr"))
   }
+  //TODO refactor
   @IBAction func cityEdited(sender: AnyObject) {
     let addressArr = cityTF.text!.componentsSeparatedByString(" ")
-//    print("\(Int(addressArr[0])!) \(addressArr[1])")
     objects.updateCellAtIndexPath(indexPath, adrsCard: upadteAValue(addressArr[0], describtion: "zipCode"))
     objects.updateCellAtIndexPath(indexPath, adrsCard: upadteAValue(addressArr[1], describtion: "city"))
   }
@@ -98,6 +100,7 @@ class DetailViewController: UIViewController {
     objects.updateCellAtIndexPath(indexPath, adrsCard: upadteAValue(hobbiesTF.text!, describtion: "hobbies"))
   }
   @IBAction func friendsEdited(sender: AnyObject) {
+    objects.updateCellAtIndexPath(indexPath, adrsCard: upadteAValue(friendsTF.text!, describtion: "friends"))
   }
   
   
@@ -117,9 +120,15 @@ class DetailViewController: UIViewController {
       let hobbiesArr = elementString.componentsSeparatedByString(", ")
       tempCard.hobbies = hobbiesArr
     case "friends":
-//      let friendsArr = elementString.componentsSeparatedByString(",")
-//      tempCard.friends
-      print("yeah change of friends :))")
+      let friendsArr = elementString.componentsSeparatedByString(", ")
+      var tempFriends = [AddressCard]()
+      for friend in friendsArr{
+        if let newFriend = (objects.getAdrsCardForFullName(friend)){
+          tempFriends.append(newFriend)
+        }
+      }
+      tempCard.friends = tempFriends
+    
     default :
       print("default in switch case was triggered")
     }

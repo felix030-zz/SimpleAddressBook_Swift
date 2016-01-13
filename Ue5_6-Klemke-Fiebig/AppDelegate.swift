@@ -66,12 +66,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
   }
   
   func addTestData(){
-//    //creating contatcs
+//creating contatcs
 //    let testContact1 = AddressCard(name: "Felix", surname: "Klemke", street: "Kiautschoustr.", houseNbr: 19, zipCode: 13353, city: "Berlin", hobbies: ["Swift 2.1", "Swift 2.2"], friends: nil, imageName: "mustache.png")
 //    let testContact2 = AddressCard(name: "Julian", surname: "Fiebig", street: "Ostseestr.", houseNbr: 88, zipCode: 12333, city: "Berlin", hobbies: ["Fußball", "Union"], friends: nil, imageName: "mustache.png")
 //    let testContact3 = AddressCard(name: "Leon", surname: "Ehrenberg", street: "Kantstr.", houseNbr: 66, zipCode: 10303, city: "Berlin", hobbies: ["Tantra", "Prokrastination"], friends: nil, imageName: "mustache.png")
 //    let testContact4 = AddressCard(name: "Johnny", surname: "TheSnake", street: "Berliner Allee.", houseNbr: 129, zipCode: 13086, city: "Berlin", hobbies: ["Bird watching", "Collecting Tea Bag Covers"], friends: nil, imageName: "mustache.png")
-//    let testContact5 = AddressCard(name: "Gregor", surname: "Klamke", street: "Tassostr.", houseNbr: 21, zipCode: 13386, city: "Berlin", hobbies: ["Company of Heros", "Carving Egg Shells"], friends: nil, imageName: "mustache.png")
+//    let testContact5 = AddressCard(name: "Gregor", surname: "Klamke", street: "Tassostr.", houseNbr: 21, zipCode: 13386, city: "Berlin", hobbies: ["Company of Heros", "Carving Egg Shells"], friends: [testContact4, testContact1], imageName: "mustache.png")
 //    addContact(testContact1)
 //    addContact(testContact2)
 //    addContact(testContact3)
