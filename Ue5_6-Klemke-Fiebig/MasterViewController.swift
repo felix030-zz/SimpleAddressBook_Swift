@@ -12,8 +12,6 @@ class MasterViewController: UITableViewController {
   
   var detailViewController: DetailViewController? = nil
   var objects = AddressBook()
-  var indexPathFromDetail = NSIndexPath()
-  var adrsCardFromDetail = AddressCard()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,16 +33,12 @@ class MasterViewController: UITableViewController {
       objects = delegate.objects
     }
   }
-  
-  func refreshData(){
-    let adrsCardSection = objects.getCellFromSectionIndexPath(indexPathFromDetail.section)
-    let adrsCard = adrsCardSection[indexPathFromDetail.row]
 
-  }
   
   override func viewWillAppear(animated: Bool) {
     self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
     super.viewWillAppear(animated)
+    self.tableView.reloadData()
   }
   
   override func didReceiveMemoryWarning() {
@@ -62,11 +56,11 @@ class MasterViewController: UITableViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showDetail" {
       if let indexPath = self.tableView.indexPathForSelectedRow {
-        let adrsCardSection = objects.getCellFromSectionIndexPath(indexPath.section)
-        let adrsCard = adrsCardSection[indexPath.row]
+//        let adrsCardSection = objects.getCellFromSectionIndexPath(indexPath.section)
+//        let adrsCard = adrsCardSection[indexPath.row]
         
         let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-        controller.adrsCard = adrsCard
+        controller.objects = objects
         controller.indexPath = indexPath
         controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
         controller.navigationItem.leftItemsSupplementBackButton = true

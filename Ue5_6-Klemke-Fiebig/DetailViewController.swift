@@ -17,7 +17,8 @@ class DetailViewController: UIViewController {
   @IBOutlet weak var cityTF: UITextField!
   @IBOutlet weak var hobbiesTF: UITextField!
   @IBOutlet weak var friendsTF: UITextField!
-  var adrsCard = AddressCard()
+
+  var objects = AddressBook()
   var indexPath = NSIndexPath()
   
   var detailItem: AnyObject? {
@@ -33,13 +34,18 @@ class DetailViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    print("\(indexPath.section) \(indexPath.row)")
+    print("\(objects.getCellFromSectionIndexPathRow(indexPath).name)")
+    
     // Do any additional setup after loading the view, typically from a nib.
-    nameTF.text = adrsCard.name
-    surnameTF.text = adrsCard.surname
-    addressTF.text = "\(adrsCard.street) \(String(adrsCard.houseNbr))"
-    cityTF.text = "\(String(adrsCard.zipCode)) \(String(adrsCard.city))"
-    hobbiesTF.text = getHobbiesForArray(adrsCard.hobbies)
-    friendsTF.text = getStringForArrayAdrsc(adrsCard.friends)
+    
+    nameTF.text = objects.getCellFromSectionIndexPathRow(indexPath).name
+    surnameTF.text = objects.getCellFromSectionIndexPathRow(indexPath).surname
+    addressTF.text = "\(objects.getCellFromSectionIndexPathRow(indexPath).street) \(String(objects.getCellFromSectionIndexPathRow(indexPath).houseNbr))"
+    cityTF.text = "\(String(objects.getCellFromSectionIndexPathRow(indexPath).zipCode)) \(String(objects.getCellFromSectionIndexPathRow(indexPath).city))"
+
+    hobbiesTF.text = getHobbiesForArray(objects.getCellFromSectionIndexPathRow(indexPath).hobbies)
+    friendsTF.text = getStringForArrayAdrsc(objects.getCellFromSectionIndexPathRow(indexPath).friends)
     self.configureView()
   }
   
@@ -72,15 +78,31 @@ class DetailViewController: UIViewController {
     return tempString
   }
   
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "showDetail" {
-      let controller = (segue.destinationViewController as! UINavigationController).topViewController as! MasterViewController
-      controller.adrsCardFromDetail = adrsCard
-      controller.indexPathFromDetail = indexPath
-      controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-      controller.navigationItem.leftItemsSupplementBackButton = true
-    }
+  @IBAction func nameEdited(sender: AnyObject) {
+    objects.updateCellAtIndexPath(indexPath, name: nameTF.text!)
   }
+  
+  
+  
+//  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//    objects.updateCellAtIndexPath(indexPath, name: nameTF.text!)
+//    print("\(nameTF.text) in der prepare for seque")
+//    
+////    if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate{
+////      //mit diesem produkt kommt man überall an die daten des AppDelegate
+////      delegate.addTestData()
+////      objects = delegate.objects
+////    }
+//    
+////    objects.insertAtSectionAtIndex(indexPath, adrsCard: adrsCard)
+////    print("\(adrsCard.surname)")
+//    
+////    if segue.identifier == "showDetail" {
+////      let controller = (segue.destinationViewController as! UINavigationController).topViewController as! MasterViewController
+////      controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+////      controller.navigationItem.leftItemsSupplementBackButton = true
+////    }
+//  }
   
 }
 
